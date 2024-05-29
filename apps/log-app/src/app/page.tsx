@@ -1,22 +1,36 @@
-import Image from "next/image";
-import { ConnectButton } from "thirdweb/react";
+'use client';
+import { ConnectButton, useActiveAccount } from "thirdweb/react";
 import { client } from "./client";
+// import { lineaSepolia } from "./lineaSepolia.config";
+import { createWallet, inAppWallet } from "thirdweb/wallets";
+import Logs from "./logs";
+
+const wallets = [
+  // inAppWallet(),
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  createWallet("me.rainbow"),
+];
 
 export default function Home() {
+  const activeAccount = useActiveAccount();
   return (
     <main className="p-4 pb-10 min-h-[100vh] flex items-center justify-center container max-w-screen-lg mx-auto">
       <div className="py-20">
         <div className="flex justify-center mb-20">
           <ConnectButton
             client={client}
+            wallets={wallets}
             appMetadata={{
-              name: "Example App",
-              url: "https://example.com",
+              name: "LogLog App",
+              url: "https://github.com/Nauxscript/loglog",
             }}
+            onConnect={() => {console.log("connected")}}
+            onDisconnect={() => {console.log("disconnected")}}
           />
         </div>
-
-        <ThirdwebResources />
+        <Logs address={activeAccount?.address} />
+        {/* <ThirdwebResources /> */}
       </div>
     </main>
   );
