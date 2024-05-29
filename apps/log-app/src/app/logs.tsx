@@ -26,6 +26,7 @@ export default function Logs({ address }: { address?: string }) {
 
   const { data: myLogs, isLoading } = useReadContract({
     contract,
+    // @ts-ignore
     method: resolveMethod("getLogs"),
     params: [address]
   });
