@@ -1,5 +1,5 @@
 export default function TimelineItem ({children}: {
-  children: React.ReactNode;
+  children: string;
 }) {
   return (
     <div className="flex gap-x-3">
