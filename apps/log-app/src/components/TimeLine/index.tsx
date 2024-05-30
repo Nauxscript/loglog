@@ -23,7 +23,7 @@ const TimelineItem = <T extends BaseTimelineItem = BaseTimelineItem, >({data}: {
           {data.content}
         </h3>
         <p className="mt-1 text-sm text-gray-600 dark:text-neutral-400">
-          {data.timestamp}
+          {new Date(Number(data.timestamp) * 1000).toLocaleDateString()}
         </p>
         {/* <button type="button" className="mt-1 -ms-1 p-1 inline-flex items-center gap-x-2 text-xs rounded-lg border border-transparent text-gray-500 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:hover:bg-neutral-700">
           <img className="flex-shrink-0 size-4 rounded-full" src="https://avatars.githubusercontent.com/u/13010589?s=48&v=4" alt="Image Description" />

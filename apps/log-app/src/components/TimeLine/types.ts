@@ -1,8 +1,8 @@
-export interface BaseTimelineItem {
- content: string | number 
- timestamp: string
+export type BaseTimelineItem = {
+  content: string | number 
+  timestamp: bigint 
 }
 
 export type TimelineProps<T extends BaseTimelineItem> = {
-  items: T[]; 
+  items: readonly T[]; 
 }
