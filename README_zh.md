@@ -1,6 +1,6 @@
 # loglog
 
-中文 | [ English ]( ./Readme_en.md )
+中文 | [ English ]( ./README.md )
 
 一个有趣的小应用。
 

@@ -1,6 +1,6 @@
 # loglog
 
-(中文)[./README_zh.md] | (English)[./README.md]
+[中文](./README_zh.md) | English
 
 An interesting little application.
 
