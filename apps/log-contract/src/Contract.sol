@@ -17,8 +17,8 @@ contract LogContract {
     }
 
 
-    function getLogs(address _user) public view returns (string[] memory) {
-        string[] memory userLogs = logs[_user];
+    function getLogs() public view returns (string[] memory) {
+        string[] memory userLogs = logs[msg.sender];
         if (userLogs.length == 0) {
             return new string[](0);
         }
