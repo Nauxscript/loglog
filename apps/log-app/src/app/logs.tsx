@@ -33,8 +33,6 @@ export default function Logs({ address }: { address?: string }) {
 
   const { mutate: sendTransaction, isPending } = useSendTransaction();
 
-  
-
   const { data: event } = useContractEvents({ 
     contract, 
     events: [preparedEvent] 
@@ -74,7 +72,7 @@ export default function Logs({ address }: { address?: string }) {
         )
       }
       {
-        !isLoading && (
+        (!isLoading && address) && (
           <div>
             {(myLogs as string[])?.map((log: string) => (
               <TimelineItem key={log}>{log}</TimelineItem>
