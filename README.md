@@ -1,11 +1,36 @@
 # loglog
 
-一个有趣的小应用。
+(中文)[./README_zh.md] | (English)[./README.md]
 
-我的一个好朋友有一个习惯，用简短的（一句）话，记录每天的事情。
+An interesting little application.
 
-他的初衷是他觉得在大学毕业工作后，好像每天都过得飞快，以至于某阵子开始，他常常想不起来过去的某一天发生了什么（其实大部分人应该都不会记得），
+One of my good friends has a habit of recording each day's events with a short (one-sentence) statement.
 
-所以他开始了这个习惯，这样某一天翻起留下的记录，还可以知道某一天大概发生了什么。
+The reason he sticks to this habit is:
 
-我听后有所触动。
+He feels that after graduating from college and starting to work, it seems like every day passes by quickly;
+
+So much so that for a while, he often couldn't remember what happened on a certain day (actually, most people probably wouldn't remember);
+
+So he started this habit.
+
+With such statements, flipping through the recorded logs on a certain day,
+
+Perhaps you can roughly pick up some fragments of memories from a certain year, month, and day.
+
+I was touched after hearing this, and thus came up with the idea of ​​such a small application.
+
+I see this behavior as inputting logs into a running process;
+
+Record everything that happens with our own "service" anytime and anywhere.
+
+Perhaps you are a "lively service," so lively that you are even outputting your heartbeat logs every moment;
+
+Or maybe you are a "silent service," only outputting a log every three to five months.
+
+So what? It's just a log.
+
+> Of course, this small application is actually just an MVP, but it is my (first) complete implementation project in learning Web3 (contracts, deployment, interaction, etc.)
+> For me, the perfect LogLog application should be able to "log" anytime and anywhere, without the need to open a webpage or an app or any other cumbersome process, but the simpler the better.
+> So, looking forward to the next form of LogLog? 🤪
+
