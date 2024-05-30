@@ -1,5 +1,5 @@
 'use client';
-import { ConnectButton, useActiveAccount } from "thirdweb/react";
+import { ConnectButton, ConnectEmbed, useActiveAccount } from "thirdweb/react";
 import { client } from "./client";
 // import { lineaSepolia } from "./lineaSepolia.config";
 import { createWallet, inAppWallet } from "thirdweb/wallets";
@@ -9,7 +9,7 @@ const wallets = [
   // inAppWallet(),
   createWallet("io.metamask"),
   createWallet("com.coinbase.wallet"),
-  createWallet("me.rainbow"),
+  // createWallet("me.rainbow"),
 ];
 
 export default function Home() {
@@ -21,10 +21,14 @@ export default function Home() {
           <ConnectButton
             client={client}
             wallets={wallets}
+            detailsModal={{
+              hideSwitchToPersonalWallet: true,
+            }}
             appMetadata={{
               name: "LogLog App",
               url: "https://github.com/Nauxscript/loglog",
             }}
+            connectModal={{ size: "compact" }}
             onConnect={() => {console.log("connected")}}
             onDisconnect={() => {console.log("disconnected")}}
           />
