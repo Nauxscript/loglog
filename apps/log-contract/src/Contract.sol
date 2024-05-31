@@ -15,6 +15,8 @@ contract LogContract {
 
     function addLogMsg(string memory _logMsg) public {
         require(bytes(_logMsg).length <= MAX_CHARACTER_AMOUNT, "Log is over the max character amount.");
+        require(bytes(_logMsg).length > 0, "Log cannot be empty.");
+        require(msg.sender != address(0), "Invalid address.");
 
         // logs[msg.sender].push(Log(_logMsg, block.timestamp));
         logs.push(Log(_logMsg, block.timestamp, msg.sender));
@@ -24,6 +26,7 @@ contract LogContract {
 
 
     function getLogs(address owner) public view returns (Log[] memory) {
+        require(owner != address(0), "Invalid address.");
         Log[] memory result = new Log[](logs.length);
         uint counter = 0;
         for (uint i = 0; i < logs.length; i++) {
