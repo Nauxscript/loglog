@@ -4,23 +4,12 @@ import { useContractEvents, useReadContract, useSendTransaction } from "thirdweb
 import TimeLine from "@/components/TimeLine";
 import { useEffect, useState } from "react";
 import { ABI } from "../../constant/abi";
+import { useThirdWeb } from "./hooks/useThirdweb";
 
 export default function Logs({ address }: { address?: string }) {
   const [logMessage, setLogMessage] = useState('');
-  const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID || '' });
-  const contract = getContract({
-    // the client you have created via `createThirdwebClient()`
-    client,
-    // the chain the contract is deployed on
-    chain: {
-      id: 59141,
-      testnet: true,
-      rpc: "https://rpc.sepolia.linea.build"
-    },
-    // the contract's address
-    address: LOG_CONTRACT_ADDRESS, 
-    abi: ABI
-  });
+  
+  const { contract } = useThirdWeb(LOG_CONTRACT_ADDRESS!, process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID!)
 
   const preparedEvent = prepareEvent({
     signature: "event LogUpdated(address indexed user, string newLog, uint256 timestamp)"
