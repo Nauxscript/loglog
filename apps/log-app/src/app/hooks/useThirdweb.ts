@@ -1,5 +1,6 @@
-import { createThirdwebClient, getContract } from "thirdweb";
+import { createThirdwebClient, getContract, prepareEvent } from "thirdweb";
 import { ABI } from "../../../constant/abi";
+import { useContractEvents } from "thirdweb/react";
 
 export const useThirdWeb = (address: string = '', clientId: string = '', ) => {
 
@@ -15,8 +16,24 @@ export const useThirdWeb = (address: string = '', clientId: string = '', ) => {
     },
     // the contract's address
     address, 
-    abi: ABI
+    abi: ABI,
   });
 
-  return { client, contract };
+  const preparedEvent = prepareEvent({
+    signature: ABI[0],
+    filters: {
+      user: address
+    }
+  }); 
+
+  const { data: event } = useContractEvents({
+    contract,
+    events: [preparedEvent],
+  });
+
+  return { 
+    client,
+    contract,
+    event
+  };
 };
